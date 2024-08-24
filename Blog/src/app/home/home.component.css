@@ -1,0 +1,152 @@
+ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.nav{
+    margin-top: 2rem;
+    display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.search {
+  position: relative;
+  display: inline-block; 
+}
+
+.search input {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 0.8rem 2rem 0.8rem 0.6rem;
+  width: auto;
+  border: none; 
+ 
+}
+
+.search i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%); 
+  
+}
+.left{
+    display: flex;
+    flex-direction: row;
+    /* gap:2rem;
+    margin-left: 20rem;  */
+}
+.rigth{
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin-top: -4px;
+    display: flex;
+    align-items: center;
+    margin-left: 15rem;
+}
+button{
+    border-radius: 15px;
+     border: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 5rem;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+.title{
+    margin-left: 32rem; 
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    font-family: 'Monoton', cursive
+}
+
+.title span {
+  font-family: 'Roboto', sans-serif; 
+  font-weight: 600; 
+  font-size: 2rem; 
+}
+/* .rigth{
+    margin-left: 20rem;
+    
+}
+.left{
+    margin-left: 5rem;
+} */
+
+  .tag{
+    /* margin-top:8%; */
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Henny Penny', cursive; /* Apply Henny Penny font */
+    text-align: center; /* Center-align the content */
+    margin-top: 2rem; /* Add top margin */
+  }
+
+  .tag span {
+    font-size: 0.5 rem; /* Adjust font size for spans */
+}
+
+  .tag p{
+    font-size: 15px;
+    font-size: 1rem; /* Adjust font size for paragraphs */
+    margin-top: 1rem; /* Add top margin */
+    line-height: 1.5; /* Adjust line height for better readability */
+  }
+  .blogs-container{
+    margin-block: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  
+  }
+
+  form {
+    display: grid;
+    place-items: center center;
+  }
+
+  .subscribe{
+    position: relative;
+  }
+
+  form input {
+    background-color: #fff;
+    border-radius: 12px;
+    padding-inline: 0.6rem;
+    padding-block: 0.8rem;
+    width: 30vw;
+
+  }
+
+  form button {
+    all: unset;
+    background-color: black;
+    color: white;
+    position: absolute;
+    bottom: 0.25rem;
+    right: 0.25rem;
+   border-radius: 10px;
+   padding-inline: 0.6rem;
+   padding-block: 0.6rem;
+  }
+
+
+.blogs-container app-card:hover {
+  animation: hop 0.5s ease infinite alternate;
+}
+
+@keyframes hop {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-5px);
+  }
+}
+
+
+

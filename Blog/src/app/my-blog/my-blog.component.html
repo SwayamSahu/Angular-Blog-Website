@@ -1,0 +1,66 @@
+<!-- my-blog.component.html -->
+
+<!-- <div *ngIf="blogs && blogs.length > 0">
+  <div *ngFor="let blog of blogs">
+    <h4>Ttitle:</h4>
+
+    <h6>{{ blog.title }}</h6>
+    <h6>Category:</h6>
+    <p>{{ blog.categories }}</p>
+    <h6>Description:</h6>
+
+    <p>{{ blog.description }}</p>
+  </div>
+</div>
+
+<div *ngIf="blogs && blogs.length === 0">
+  <p>No blogs found.</p>
+</div> -->
+
+<!-- my-blog.component.html -->
+
+<!-- <div class="container" *ngIf="blogs && blogs.length > 0">
+  <div class="blog-item" *ngFor="let blog of blogs">
+    <h4>Title:</h4>
+    <h6>{{ blog.title }}</h6>
+    <h6>Category:</h6>
+    <p>{{ blog.categories }}</p>
+    <h6>Description:</h6>
+    <p>{{ blog.description }}</p>
+  </div>
+</div>
+
+<div class="container" *ngIf="blogs && blogs.length === 0">
+  <p>No blogs found.</p>
+</div> -->
+
+<!-- my-blog.component.html -->
+
+<div class="blog-container" *ngIf="blogs && blogs.length > 0">
+  <div class="blog-card" *ngFor="let blog of blogs">
+    <div class="image">
+      <!-- Assuming you have an image URL in your blog data, update src attribute accordingly -->
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" />
+    </div>
+    <div class="details">
+      <h3>
+        <a href="javascript:void(0);" (click)="redirectToBlogData(blog)">{{
+          blog.title
+        }}</a>
+      </h3>
+      <p>Category: {{ blog.categories }}</p>
+      <!-- <p>{{ blog.description }}</p> -->
+
+      <p>{{ getShortDescription(blog.description) }}</p>
+      <p *ngIf="blog.description.split(' ').length > 20">
+        <a href="javascript:void(0);" (click)="redirectToBlogData(blog)"
+          >Read More</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="blogs && blogs.length === 0">
+  <p>No blogs found.</p>
+</div>

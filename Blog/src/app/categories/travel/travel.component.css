@@ -1,0 +1,51 @@
+/* science.component.css */
+.blog-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .blog-card {
+    width: 80%; /* Adjust width as needed */
+    height: 10rem; 
+    margin: 20px 0;
+    display: flex;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    border-radius: 18px;
+    overflow: hidden;
+    background-color: #fff;
+    flex-direction: row;
+  }
+  
+  .image {
+    flex: 1;
+    overflow: hidden; 
+  }
+  
+  .image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .details {
+    flex: 2;
+    padding: 20px;
+  }
+  
+  .details h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .details p {
+    margin: 0;
+  }
+  
+  .alternate .image{
+    order: 2;
+  }
+ a{
+  text-decoration: none;
+ }
+  

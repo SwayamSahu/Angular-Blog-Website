@@ -1,0 +1,15 @@
+.blog-data-container {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .blog-data-container h2 {
+    font-size: 24px;
+  }
+  
+  .blog-data-container button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,67 @@
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<div class="con">
+  <div class="nav">
+    <ul>
+      <!-- <div class="left">
+        <li>Home</li>
+        <li>Categories</li>
+      </div> -->
+      <div class="title">
+        <li><span>taara</span></li>
+      </div>
+      <div class="rigth">
+        <li>
+          <div class="search">
+            <input type="text" id="search-input" placeholder="Search" />
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <!-- <input type="text" id="search-input" placeholder="Search" /> -->
+          </div>
+        </li>
+        <li>
+          <button (click)="redirect()">Login</button>
+        </li>
+      </div>
+    </ul>
+  </div>
+  <div class="content">
+    <div class="tag">
+      <span>Hey, we're Tarra.See our</span><br />
+      <span>thoughts,stories and ideas.</span>
+      <p>
+        Tarra is a minimal multipuprpose blog.A beautiful way to share stories
+        with your growing audience
+      </p>
+    </div>
+    <form (ngSubmit)="subscribe()">
+      <div class="subscribe">
+        <input
+          type="text"
+          name="email"
+          placeholder="Email Address"
+          [(ngModel)]="email"
+        />
+        <button type="submit">Subscribe</button>
+      </div>
+    </form>
+  </div>
+  <div class="blogs-container">
+    <app-card
+      [imageUrl]="'../../assets/tech.jpg'"
+      [text]="'Sceince'"
+    ></app-card>
+    <app-card
+      [imageUrl]="'../../assets/travel.jpg'"
+      [text]="'Travel'"
+    ></app-card>
+    <app-card [imageUrl]="'../../assets/art.jpg'" [text]="'Art'"></app-card>
+    <app-card
+      [imageUrl]="'../../assets/lifestyle.jpg'"
+      [text]="'Lifestyle'"
+    ></app-card>
+  </div>
+</div>

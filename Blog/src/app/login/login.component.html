@@ -1,0 +1,308 @@
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked />
+    <label for="tab-1" class="tab">Sign In</label>
+
+    <input id="tab-2" type="radio" name="tab" class="sign-up" />
+    <label for="tab-2" class="tab">Sign Up</label>
+
+    <div class="login-form">
+      <form
+        [formGroup]="signInForm"
+        method="post"
+        (ngSubmit)="onSubmit()"
+        class="sign-in-htm"
+      >
+        <div class="group">
+          <label for="username" class="label">Username</label>
+          <input
+            id="username"
+            type="text"
+            class="input"
+            formControlName="username"
+            placeholder="Username"
+            name="username"
+            required
+          />
+          <div
+            *ngIf="
+              signInForm.get('username')?.invalid &&
+              (signInForm.get('username')?.dirty ||
+                signInForm.get('username')?.touched)
+            "
+            class="text-danger"
+          >
+            <span *ngIf="signInForm.get('username')?.errors?.['required']"
+              >Username is required.</span
+            >
+          </div>
+        </div>
+        <div class="group">
+          <label for="password" class="label">Password</label>
+          <input
+            id="password"
+            type="password"
+            class="input"
+            data-type="password"
+            formControlName="password"
+            placeholder="Password"
+            name="password"
+            required
+          />
+          <div
+            *ngIf="
+              signInForm.get('password')?.invalid &&
+              (signInForm.get('password')?.dirty ||
+                signInForm.get('password')?.touched)
+            "
+            class="text-danger"
+          >
+            <span *ngIf="signInForm.get('password')?.errors?.['required']"
+              >Password is required.</span
+            >
+          </div>
+        </div>
+        <div class="group">
+          <button type="submit" class="button" [disabled]="signInForm.invalid">
+            Sign In
+          </button>
+        </div>
+      </form>
+<!-- <div class="container">
+  <h2>Sign In</h2>
+  <form
+    action="#"
+    method="post"
+    (ngSubmit)="onSubmit()"
+    class="sign-in-form"
+    #signInForm="ngForm"
+  >
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        #nameInput="ngModel"
+      />
+      <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="text-danger">
+        Username is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        #passwordInput="ngModel"
+      />
+      <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="text-danger">
+        Password is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <button type="submit" [disabled]="signInForm.invalid">Sign In</button>
+    </div>
+    <a href="register">New User? Create Account</a>
+  </form>
+</div> -->
+ 
+
+      <div class="sign-up-htm">
+        <form
+          [formGroup]="signUpForm"
+          method="post"
+          (ngSubmit)="onTrigger()"
+          class="sign-up-htm"
+        >
+          <div class="group">
+            <label for="username" class="label">Username</label>
+            <input
+              id="username"
+              type="text"
+              class="input"
+              formControlName="username"
+              placeholder="Username"
+              name="username"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('username')?.invalid &&
+                (signUpForm.get('username')?.dirty ||
+                  signUpForm.get('username')?.touched)
+              "
+              class="text-danger"
+            >
+              <span *ngIf="signUpForm.get('username')?.errors?.['required']"
+                >Username is required.</span
+              >
+            </div>
+          </div>
+          <div class="group">
+            <label for="password" class="label">Password</label>
+            <input
+              id="password"
+              type="password"
+              class="input"
+              data-type="password"
+              formControlName="password"
+              placeholder="Password"
+              name="password"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('password')?.invalid &&
+                (signUpForm.get('password')?.dirty ||
+                  signUpForm.get('password')?.touched)
+              "
+              class="text-danger"
+            >
+              <span *ngIf="signUpForm.get('password')?.errors?.['required']"
+                >Password is required.</span
+              >
+            </div>
+          </div>
+          <div class="group">
+            <label for="password" class="label">Repeat Password</label>
+            <input
+              id="password"
+              type="password"
+              class="input"
+              data-type="password"
+              formControlName="repeatPassword"
+              placeholder="Repeat Password"
+              name="password"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('repeatPassword')?.invalid &&
+                (signUpForm.get('repeatPassword')?.dirty ||
+                  signUpForm.get('repeatPassword')?.touched)
+              "
+              class="text-danger"
+            >
+              <span
+                *ngIf="signUpForm.get('repeatPassword')?.errors?.['required']"
+                >Repeat Password is required.</span
+              >
+              <span *ngIf="signUpForm.hasError('passwordMismatch')"
+                >Passwords do not match.</span
+              >
+            </div>
+          </div>
+          <div class="group">
+            <label for="email" class="label">Email Address</label>
+            <input
+              id="email"
+              type="email"
+              class="input"
+              formControlName="email"
+              placeholder="Email Address"
+              name="email"
+              required
+            />
+            <div
+              *ngIf="
+                signUpForm.get('email')?.invalid &&
+                (signUpForm.get('email')?.dirty ||
+                  signUpForm.get('email')?.touched)
+              "
+              class="text-danger"
+            >
+              <span *ngIf="signUpForm.get('email')?.errors?.['required']"
+                >Email is required.</span
+              >
+              <!-- <span *ngIf="signUpForm.get('email')?.errors?.['email']">Invalid email format.</span> -->
+              <span *ngIf="signUpForm.get('email')?.errors?.['pattern']"
+                >Invalid email format.</span
+              >
+            </div>
+          </div>
+
+          <div class="group">
+            <button
+              type="submit"
+              class="button"
+              [disabled]="signUpForm.invalid"
+            >
+              Sign Up
+            </button>
+          </div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+            <a><label for="tab-1">Already Member?</label></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <form [formGroup]="signInForm" (ngSubmit)="onSubmit()" class="sign-in-htm">
+  
+  <div class="group">
+    <label for="username" class="label">Username</label>
+    <input id="username" type="text" class="input" formControlName="username" placeholder="Username" />
+    <div *ngIf="signInForm.get('username')?.invalid && (signInForm.get('username')?.dirty || signInForm.get('username')?.touched)" class="text-danger">
+      <span *ngIf="signInForm.get('username')?.errors?.['required']">Username is required.</span>
+    </div>
+  </div>
+  <div class="group">
+    <label for="password" class="label">Password</label>
+    <input id="password" type="password" class="input" formControlName="password" placeholder="Password" />
+    <div *ngIf="signInForm.get('password')?.invalid && (signInForm.get('password')?.dirty || signInForm.get('password')?.touched)" class="text-danger">
+      <span *ngIf="signInForm.get('password')?.errors?.['required']">Password is required.</span>
+    </div>
+  </div>
+
+  <div class="group">
+    <button type="submit" class="button" [disabled]="signInForm.invalid">Sign In</button>
+  </div>
+</form>
+
+<div class="sign-up-htm">
+  
+  <form [formGroup]="signUpForm" (ngSubmit)="onTrigger()" class="sign-up-htm">
+    <div class="group">
+      <label for="username" class="label">Username</label>
+      <input id="username" type="text" class="input" formControlName="username" placeholder="Username" />
+      <div *ngIf="signUpForm.get('username')?.invalid && (signUpForm.get('username')?.dirty || signUpForm.get('username')?.touched)" class="text-danger">
+        <span *ngIf="signUpForm.get('username')?.errors?.['required']">Username is required.</span>
+      </div>
+    </div>
+    <div class="group">
+      <label for="password" class="label">Password</label>
+      <input id="password" type="password" class="input" formControlName="password" placeholder="Password" />
+      <div *ngIf="signUpForm.get('password')?.invalid && (signUpForm.get('password')?.dirty || signUpForm.get('password')?.touched)" class="text-danger">
+        <span *ngIf="signUpForm.get('password')?.errors?.['required']">Password is required.</span>
+      </div>
+    </div>
+    <div class="group">
+      <label for="repeatPassword" class="label">Repeat Password</label>
+      <input id="repeatPassword" type="password" class="input" formControlName="repeatPassword" placeholder="Repeat Password" />
+      <div *ngIf="signUpForm.get('repeatPassword')?.invalid && (signUpForm.get('repeatPassword')?.dirty || signUpForm.get('repeatPassword')?.touched)" class="text-danger">
+        <span *ngIf="signUpForm.get('repeatPassword')?.errors?.['required']">Repeat Password is required.</span>
+        <span *ngIf="signUpForm.hasError('passwordMismatch')">Passwords do not match.</span>
+      </div>
+    </div>
+    <div class="group">
+      <label for="email" class="label">Email Address</label>
+      <input id="email" type="email" class="input" formControlName="email" placeholder="Email Address" />
+      <div *ngIf="signUpForm.get('email')?.invalid && (signUpForm.get('email')?.dirty || signUpForm.get('email')?.touched)" class="text-danger">
+        <span *ngIf="signUpForm.get('email')?.errors?.['required']">Email is required.</span>
+        <span *ngIf="signUpForm.get('email')?.errors?.['email']">Invalid email format.</span>
+      </div>
+    </div>
+    <div class="group">
+      <button type="submit" class="button" [disabled]="signUpForm.invalid">Sign Up</button>
+    </div>
+  </form>
+</div> -->
