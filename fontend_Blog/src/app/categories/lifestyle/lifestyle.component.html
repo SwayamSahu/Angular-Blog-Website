@@ -1,0 +1,30 @@
+<h2>Lifestyle Blogs</h2>
+
+<!-- <div class="blog-container" *ngFor="let blog of blogs">
+  <div class="blog-card">
+    <div class="image">
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" />
+    </div>
+    <div class="details">
+      <h3>{{ blog.title }}</h3>
+      <p>{{ blog.description }}</p>
+      <p>Category: {{ blog.categories }}</p>
+    </div>
+  </div>
+</div> -->
+
+
+<div class="blog-container" *ngFor="let blog of blogs ; let i = index" >
+  <div class="blog-card" [ngClass]="{alternate : i % 2 === 1}">
+    <div class="image">
+      <img [src]="blog.imageUrl" alt="{{ blog.title }}" />
+    </div>
+    <div class="details">
+        <h3><a href="javascript:void(0);" (click)="redirectToBlogData(blog)">{{ blog.title }}</a></h3>
+      <p>Category: {{ blog.categories }}</p>
+      <!-- <p>{{ blog.description }}</p> -->
+      <p>{{ getShortDescription(blog.description) }}</p>
+      <p *ngIf="blog.description.split(' ').length > 20"><a href="javascript:void(0);" (click)="redirectToBlogData(blog)">Read More</a></p>
+    </div>
+  </div>
+</div>

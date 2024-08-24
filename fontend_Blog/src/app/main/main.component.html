@@ -1,0 +1,118 @@
+<!-- <p>main works!</p> -->
+
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+/>
+
+<div class="nav">
+  <ul>
+    <li>
+      <div class="title">
+        <h1>taara</h1>
+      </div>
+    </li>
+    <li>
+      <div class="create">
+        <button (click)="redirectToNewBlog()">
+          <i class="fa-regular fa-pen-to-square"></i>
+        </button>
+      </div>
+    </li>
+    <li>
+      <div class="logout">
+        <button (click)="myBlogs()">My-blogs</button>
+        <button (click)="logout()">
+          <i class="fa-solid fa-right-from-bracket fa-rotate-180"></i>
+        </button>
+      </div>
+    </li>
+    <li>
+      <div class="my"></div>
+    </li>
+  </ul>
+</div>
+
+<h2>Blog Categories</h2>
+<div class="blogs-container">
+  <a [routerLink]="['/science']"
+    ><app-blog-card
+      [imageUrl]="'../../assets/tech.jpg'"
+      [text]="'Sceince'"
+    ></app-blog-card
+  ></a>
+
+  <a [routerLink]="['/travel']"
+    ><app-blog-card
+      [imageUrl]="'../../assets/travel.jpg'"
+      [text]="'Travel'"
+    ></app-blog-card
+  ></a>
+  <a [routerLink]="['/art']"
+    ><app-blog-card
+      [imageUrl]="'../../assets/art.jpg'"
+      [text]="'Art'"
+    ></app-blog-card>
+  </a>
+  <a [routerLink]="['/lifestyle']">
+    <app-blog-card
+      [imageUrl]="'../../assets/lifestyle.jpg'"
+      [text]="'Lifestyle'"
+    ></app-blog-card>
+  </a>
+</div>
+
+<div>
+  <h3>Featured Blogs</h3>
+</div>
+
+<!-- Featured blog cards -->
+<div class="featured-blogs">
+  <!-- Card 1 -->
+  <div class="blog-card">
+    <div class="image">
+      <img
+        src="https://loremflickr.com/640/480/science"
+        alt="Blog 1"
+      />
+    </div>
+    <div class="details">
+      <h4>Crowdsourced Geospatial Data</h4>
+      <p>Astronomy has long been dominated by expert </p>
+      <p>Category: Science</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="blog-card">
+    <div class="image">
+      <img
+        src="https://loremflickr.com/640/480/travel"
+        alt="Blog 2"
+      />
+    </div>
+    <div class="details">
+      <h4>Travel Tales from India</h4>
+      <p>It began with just articles about travel in India.</p>
+      <p>Category: Travel</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="blog-card">
+    <div class="image">
+      <img
+        src="https://loremflickr.com/640/480/art"
+        alt="Blog 3"
+      />
+    </div>
+    <div class="details">
+      <h4>Diwali artefacts </h4>
+      <p>Art India Foundation have been conducting </p>
+      <p>Category: Art</p>
+      <a href="#" class="read-more">Read More</a>
+    </div>
+  </div>
+</div>
